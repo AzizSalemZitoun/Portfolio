@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const projects = [
+      {
+        name: "Medico",
+        description: "A fullstack application for patients to connect with doctors.",
+        link: "https://github.com/your-username/inventory-api",
+      },
+      {
+        name: "Meditivo",
+        description: "A full stack application for when you need to meditate and take a breathe.",
+        link: "https://github.com/your-username/auth-service",
+      },
+      {
+        name: "Al9ani",
+        description: "Web application for finding and reserving in restaurants and coffee shops.",
+        link: "https://github.com/your-username/auth-service",
+      },
+      {
+        name: "Esprit internships",
+        description: "A platform for Esprit students to find internships and companies to post internship opportunities.",
+        link: "https://github.com/your-username/blog-backend",
+      },
+    ];
+
+    function ProjectCard({ project }) {
+      
+      return (
+        <div className="card">
+          <h3>{project.name}</h3>
+          <p>{project.description}</p>
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            View Repository
+          </a>
+        </div>
+      );
+    }
+
+    function UsedTechnologies() {
+      const techs = [
+        {
+          name: "Java",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+        },
+        {
+          name: "Spring Boot",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+        },
+        {
+          name: "SQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+        },
+        {
+          name: "Angular",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+        },
+        {
+          name: "Symfony",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg"
+        },
+        {
+  name: "ASP.NET",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+}
+
+      ];
+
+      return (
+        <section className="tech-section">
+          <h2>Technologies I used</h2>
+          <div className="tech-icons">
+            {techs.map(({ name, icon }) => (
+              <div key={name} className="tech-icon" title={name}>
+                <img src={icon} alt={name} />
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function SocialLinks() {
+      const links = [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/aziz_zitoun/",
+          icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#b76e34" viewBox="0 0 24 24">
+              <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-2a1.25 1.25 0 112.5 0 1.25 1.25 0 01-2.5 0z"/>
+            </svg>
+          )
+        },
+        {
+          name: "LinkedIn",
+          url: "https://linkedin.com/in/your-linkedin",
+          icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#b76e34" viewBox="0 0 24 24">
+              <path d="M4.98 3.5a2.5 2.5 0 11-.002 5.002A2.5 2.5 0 014.98 3.5zM3 8.75h4v11H3v-11zm6.5 0h3.764v1.526h.054c.524-.99 1.803-2.037 3.709-2.037 3.967 0 4.699 2.61 4.699 6v6.511h-4v-5.766c0-1.375-.024-3.145-1.916-3.145-1.917 0-2.21 1.496-2.21 3.04v5.87h-4v-11z"/>
+            </svg>
+          )
+        },
+        {
+          name: "GitHub",
+          url: "https://github.com/AzizSalemZitoun",
+          icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#b76e34" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.5 2.865 8.32 6.839 9.67.5.09.682-.22.682-.49 0-.24-.008-.87-.013-1.71-2.782.61-3.369-1.355-3.369-1.355-.455-1.18-1.11-1.496-1.11-1.496-.908-.62.07-.61.07-.61 1.003.07 1.53 1.05 1.53 1.05.892 1.55 2.34 1.1 2.91.84.09-.65.35-1.1.63-1.35-2.22-.26-4.555-1.13-4.555-5.04 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.05A9.548 9.548 0 0112 6.85c.85.004 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.43.2 2.49.1 2.75.64.71 1.03 1.62 1.03 2.73 0 3.92-2.34 4.77-4.57 5.03.36.31.68.93.68 1.88 0 1.36-.01 2.46-.01 2.8 0 .27.18.58.69.48A10.01 10.01 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+            </svg>
+          )
+        }
+      ];
+
+      return (
+        <footer className="social-footer">
+          {links.map(({ name, url, icon }) => (
+            <a key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={name} className="social-link">
+              {icon}
+            </a>
+          ))}
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <img src="/pic.jpg" alt="Aziz Salem Zitoun" className="profile-pic" />
+          <h1 className="name">Aziz Salem Zitoun</h1>
+          <p className="description">
+            A 24 years old fullstack developer with a special interest in backend
+          </p>
+          <UsedTechnologies />
+           <h2 className="tech-section">My Projects</h2>
+          <div className="card-container">
+            {projects.map((proj, index) => (
+              <ProjectCard key={index} project={proj} />
+            ))}
+          </div>
+          
+          <SocialLinks />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
